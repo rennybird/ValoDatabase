@@ -1,0 +1,69 @@
+﻿@page
+@model ValoDatabase.Pages.Playerstats.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PlayerStat</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PlayerStat.PlayerID" class="control-label"></label>
+                <input asp-for="PlayerStat.PlayerID" class="form-control" />
+                <span asp-validation-for="PlayerStat.PlayerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerStat.MatchID" class="control-label"></label>
+                <input asp-for="PlayerStat.MatchID" class="form-control" />
+                <span asp-validation-for="PlayerStat.MatchID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerStat.AgentID" class="control-label"></label>
+                <input asp-for="PlayerStat.AgentID" class="form-control" />
+                <span asp-validation-for="PlayerStat.AgentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerStat.Kills" class="control-label"></label>
+                <input asp-for="PlayerStat.Kills" class="form-control" />
+                <span asp-validation-for="PlayerStat.Kills" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerStat.Deaths" class="control-label"></label>
+                <input asp-for="PlayerStat.Deaths" class="form-control" />
+                <span asp-validation-for="PlayerStat.Deaths" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerStat.Assists" class="control-label"></label>
+                <input asp-for="PlayerStat.Assists" class="form-control" />
+                <span asp-validation-for="PlayerStat.Assists" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerStat.Headshots" class="control-label"></label>
+                <input asp-for="PlayerStat.Headshots" class="form-control" />
+                <span asp-validation-for="PlayerStat.Headshots" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerStat.AVGDamageperRound" class="control-label"></label>
+                <input asp-for="PlayerStat.AVGDamageperRound" class="form-control" />
+                <span asp-validation-for="PlayerStat.AVGDamageperRound" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

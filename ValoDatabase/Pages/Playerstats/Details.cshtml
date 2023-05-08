@@ -1,0 +1,67 @@
+﻿@page
+@model ValoDatabase.Pages.Playerstats.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PlayerStat</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStat.PlayerID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStat.PlayerID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStat.MatchID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStat.MatchID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStat.AgentID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStat.AgentID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStat.Kills)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStat.Kills)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStat.Deaths)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStat.Deaths)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStat.Assists)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStat.Assists)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStat.Headshots)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStat.Headshots)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStat.AVGDamageperRound)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStat.AVGDamageperRound)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.PlayerStat?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

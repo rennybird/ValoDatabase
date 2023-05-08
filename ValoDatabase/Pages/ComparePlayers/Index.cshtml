@@ -1,0 +1,78 @@
+﻿@page "{Player1Id:int}/{Player2Id:int}"
+@model ValoDatabase.Pages.ComparePlayersModel
+<canvas id="myChart" width="500" height="400"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<h1>Compare Players</h1>
+
+<table class="table table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th>Player</th>
+            <th>InGameName</th>
+            <th>Agent</th>
+            <th>Kills</th>
+            <th>Deaths</th>
+            <th>Assists</th>
+            <th>Headshots</th>
+            <th>AVG Damage/Round</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Player1Stats.Player.Name</td>
+            <td>@Model.Player1Stats.Player.InGameName</td>
+            <td>@Model.Player1Stats.Agent.Name</td>
+            <td>@Model.Player1Stats.Kills</td>
+            <td>@Model.Player1Stats.Deaths</td>
+            <td>@Model.Player1Stats.Assists</td>
+            <td>@Model.Player1Stats.Headshots</td>
+            <td>@Model.Player1Stats.AVGDamageperRound</td>
+        </tr>
+        <tr>
+            <td>@Model.Player2Stats.Player.Name</td>
+            <td>@Model.Player2Stats.Player.InGameName</td>
+            <td>@Model.Player2Stats.Agent.Name</td>
+            <td>@Model.Player2Stats.Kills</td>
+            <td>@Model.Player2Stats.Deaths</td>
+            <td>@Model.Player2Stats.Assists</td>
+            <td>@Model.Player2Stats.Headshots</td>
+            <td>@Model.Player2Stats.AVGDamageperRound</td>
+        </tr>
+    </tbody>
+</table>
+
+<<script>
+     var ctx = document.getElementById('myChart').getContext('2d');
+     var myChart = new Chart(ctx, {
+         type: 'radar',
+         data: {
+             labels: ['Kills', 'Deaths', 'Assists', 'Headshots', 'AVG Damage/Round'],
+             datasets: [{
+                 label: '@Model.Player1Stats.Player.InGameName',
+                 data: [@Model.Player1Stats.Kills, @Model.Player1Stats.Deaths, @Model.Player1Stats.Assists, @Model.Player1Stats.Headshots, @Model.Player1Stats.AVGDamageperRound],
+                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                 borderColor: 'rgba(255, 99, 132, 1)',
+                 borderWidth: 1,
+                 pointBackgroundColor: 'rgba(255, 99, 132, 1)'
+             },
+             {
+                 label: '@Model.Player2Stats.Player.InGameName',
+                 data: [@Model.Player2Stats.Kills, @Model.Player2Stats.Deaths, @Model.Player2Stats.Assists, @Model.Player2Stats.Headshots, @Model.Player2Stats.AVGDamageperRound],
+                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                 borderColor: 'rgba(54, 162, 235, 1)',
+                 borderWidth: 1,
+                 pointBackgroundColor: 'rgba(54, 162, 235, 1)'
+             }]
+         },
+         options: {
+             scale: {
+                 ticks: {
+                     beginAtZero: true,
+                     max: 100
+                 }
+             }
+         }
+     });
+</script>
